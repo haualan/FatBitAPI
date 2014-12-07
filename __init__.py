@@ -1,13 +1,17 @@
 #!flask/bin/python
 from flask import Flask, jsonify, request, abort
+from sampleNeighbors import sampleNeighborsJSON
 import accessMethods as am
 
 app = Flask(__name__)
 
-@app.route('/user/<username>')
-def show_user_profile(username):
+@app.route('/getNeighbors', methods=['GET'])
+def getNeighbors():
     # show the user profile for that user
-    return 'User %s' % username
+    lon = request.args.get('lon')
+    lat = request.args.get('lat')
+    r = sampleNeighborsJSON
+    return jsonify({'result': r}), 201
 
 @app.route('/getCalories', methods=['GET'])
 def getCalories():
