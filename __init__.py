@@ -5,7 +5,7 @@ import accessMethods as am
 
 app = Flask(__name__)
 
-@app.route('/getNeighbors', methods=['GET'])
+@app.route('/getNeighbors', methods=['GET','POST'])
 def getNeighbors():
     # show the user profile for that user
     lon = request.args.get('lon')
