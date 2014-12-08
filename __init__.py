@@ -4,6 +4,9 @@ from flask import Flask, jsonify, request, abort
 from sampleNeighbors import sampleNeighborsJSON
 import accessMethods as am
 
+dBString = '/home/ubuntu/db.json'
+scoreDBstring = '/home/ubuntu/score.json'
+
 app = Flask(__name__)
 
 @app.route('/getNeighbors', methods=['POST'])
@@ -13,7 +16,7 @@ def getNeighbors():
 
     
 
-    db = TinyDB('db.json')
+    db = TinyDB(dBString)
     # db.insert(iJSON)
 
 
@@ -40,7 +43,7 @@ def postOutcome():
     score = iJSON['score']
     UID = iJSON['UID']
 
-    db = TinyDB('score.json')
+    db = TinyDB(scoreDBstring)
     # db.insert(iJSON)
 
 
@@ -59,7 +62,7 @@ def postOutcome():
 
 @app.route('/getLeaders', methods=['GET'])
 def getLeaders():
-    db = TinyDB('score.json')
+    db = TinyDB(scoreDBstring)
 
     # just return the top 5 winners
     r = []
