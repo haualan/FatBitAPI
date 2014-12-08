@@ -4,11 +4,11 @@ from flask import Flask, jsonify, request, abort
 from sampleNeighbors import sampleNeighborsJSON
 import accessMethods as am
 
-# dBString = '/home/ubuntu/db.json'
-# scoreDBstring = '/home/ubuntu/score.json'
+dBString = '/var/www/jpmcResearchBot/FatBitAPI/db.json'
+scoreDBstring = '/var/www/jpmcResearchBot/FatBitAPI/score.json'
 
-dBString = 'db.json'
-scoreDBstring = 'score.json'
+# dBString = 'db.json'
+# scoreDBstring = 'score.json'
 
 app = Flask(__name__)
 
